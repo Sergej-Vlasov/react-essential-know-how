@@ -14,12 +14,15 @@ function PropsAndState() {
     <>
       <button onClick={handleIncrement}>Increment counter</button>
       <div>count is: {counter}</div>
-      <SeparateIncrement handleIncrement={handleIncrement} />
+
       {/* rerenders because state changes and handleIncrement changes reference  */}
-      <SeparateCounterDisplay counter={counter} />
+      <SeparateIncrement handleIncrement={handleIncrement} />
+
       {/* rerenders because parents state changed but also rerenders because counter prop changed (batched together)  */}
-      <JustChilling />
+      <SeparateCounterDisplay counter={counter} />
+
       {/* rerenders because parents state changed  */}
+      <JustChilling />
     </>
   );
 }
