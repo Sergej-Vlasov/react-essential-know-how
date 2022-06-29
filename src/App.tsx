@@ -1,7 +1,11 @@
-import "./App.css";
+import { PropsAndState } from "./components";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <PropsAndState />
+    </>
+  );
 }
 
 export default App;
