@@ -1,9 +1,11 @@
-import { PropsAndState } from "./components";
+import { Hooks } from "./components";
+// import { PropsAndState } from "./components";
 
 function App() {
   return (
     <>
-      <PropsAndState />
+      {/* <PropsAndState /> */}
+      <Hooks />
     </>
   );
 }
