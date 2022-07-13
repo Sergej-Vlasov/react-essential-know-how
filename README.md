@@ -14,8 +14,6 @@ List of essential know how needed for day to day react development.
   - useRef
   - useCallback
   - useMemo
-
-### Lesson 2
-
-- Hooks interaction
+- Hooks interactions
   - useMemo and useCallback with props and state change
+  - useEffect and useRef usage
