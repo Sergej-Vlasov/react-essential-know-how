@@ -10,7 +10,22 @@ function Hooks() {
   console.log(`PropsAndState rerender`);
   const [counter, setCounter] = useState(0);
   const [otherCounter, setOtherCounter] = useState(0);
+
+  // ref that is associated with DOM element
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // ref that is associated with first render
+  const firstRenderRef = useRef(true);
+
+  // nonMemoObject will reinitialise on state change, (referential equality will change)
+  const nonMemoObject = {};
+
+  // memoObject will not reinitialise on state change and is stable (referential equality will not change)
+  const memoObject = useMemo(() => ({}), []);
+
+  // ref that is associated with the particular variable, check useEffect for why this useful
+  const isEqualVariable = useRef(nonMemoObject);
+  // const isEqualVariable = useRef(nonMemoObject);
 
   // handleIncrement function definition is no memoised and will not change on every rerender
   const handleIncrement = useCallback(() => setCounter((prev) => prev + 1), []);
@@ -28,14 +43,22 @@ function Hooks() {
     }
   }, []);
 
-  // nonMemoObject will reinitialise on state change
-  const nonMemoObject = {};
-
-  // memoObject will not reinitialise on state change and is stable
-  const memoObject = useMemo(() => ({}), []);
-
   useEffect(() => {
     console.log("useEffect runs on every rerender");
+
+    // setting the first render to false after first useEffect
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+    }
+
+    // here we are using stable isEqualVariable ref to check whether non primitive variable changed its
+    //    referential equality between renders. When referential equality changes in
+    //    props the component will rerender even if its memoised, check <ComparingMemoedProp />
+    console.log(
+      "nonMemoObject equals between renders",
+      isEqualVariable.current === nonMemoObject
+    );
+    // console.log("memoObject equals between renders", isEqualVariable.current === memoObject);
   });
 
   useEffect(() => {
@@ -60,7 +83,7 @@ function Hooks() {
 
       <button onClick={handleOtherCounter}>Increment other counter</button>
 
-      <button onClick={handleRefButton}> Ref to increment button</button>
+      <button onClick={handleRefButton}>Ref to increment button</button>
 
       <div>counter is: {counter}</div>
       <div>other counter is: {otherCounter}</div>
@@ -76,8 +99,8 @@ function Hooks() {
 
       {/* will rerender on every state change with nonMemoObject and will never rerender with memoObject */}
       <ComparingMemoedProp
-        obj={nonMemoObject}
-        // obj={memoObject}
+        // obj={nonMemoObject}
+        obj={memoObject}
       />
     </>
   );
