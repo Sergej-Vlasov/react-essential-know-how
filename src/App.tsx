@@ -1,4 +1,5 @@
-import { Hooks } from "./components";
+import { ComparisonUseReducerVsUseState } from "./components";
+// import { Hooks } from "./components";
 // import { PropsAndState } from "./components";
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
     <>
       {/* uncomment to one component and explore the contents to explore */}
       {/* <PropsAndState /> */}
-      <Hooks />
+      {/* <Hooks /> */}
+      <ComparisonUseReducerVsUseState />
     </>
   );
 }
