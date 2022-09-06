@@ -17,3 +17,11 @@ List of essential know how needed for day to day react development.
 - Hooks interactions
   - useMemo and useCallback with props and state change
   - useEffect and useRef usage
+
+### Lesson 2
+
+- Hooks
+  - useReducer
+  - useLayoutEffect
+  - useContext
+  - useDeferredValue (react 18+ only)
