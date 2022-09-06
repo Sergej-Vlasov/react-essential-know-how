@@ -23,5 +23,5 @@ List of essential know how needed for day to day react development.
 - Hooks
   - useReducer
   - useLayoutEffect
-  - useDefferedValue
   - useContext
+  - useDeferredValue (react 18+ only)
