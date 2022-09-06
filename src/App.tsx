@@ -1,7 +1,9 @@
 // import { ComparisonUseReducerVsUseState } from "./components";
 // import { ContextExample } from "./components";
 
-import { UseLayoutEffectExample } from "./components";
+import { UseDeferredValueExample } from "./components";
+
+// import { UseLayoutEffectExample } from "./components";
 
 // import { Hooks } from "./components";
 // import { PropsAndState } from "./components";
@@ -14,7 +16,8 @@ function App() {
       {/* <Hooks /> */}
       {/* <ComparisonUseReducerVsUseState /> */}
       {/* <ContextExample /> */}
-      <UseLayoutEffectExample />
+      {/* <UseLayoutEffectExample /> */}
+      <UseDeferredValueExample />
     </>
   );
 }
